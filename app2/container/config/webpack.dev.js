@@ -5,6 +5,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const commonConfig = require("./webpack.common");
 const packageJSON = require("../package.json");
 
+/** @type {import('webpack').Configuration} */
 const devConfig = {
     mode: "development",
     devServer: {
@@ -27,4 +28,5 @@ const devConfig = {
     ],
 };
 
+/** @type {import('webpack').Configuration} */
 module.exports = merge(commonConfig, devConfig);
