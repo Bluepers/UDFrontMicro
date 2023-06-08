@@ -4,11 +4,11 @@ import MarketingApp from "./components/MarketingApp";
 
 const App = () => {
   return (
-    <>
-      <h1>Hello!</h1>
-      <hr />
-      <MarketingApp />
-    </>
+      <>
+          <h1>Hello!</h1>
+          <hr />
+          <MarketingApp />
+      </>
   );
 };
 
