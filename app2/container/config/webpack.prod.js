@@ -6,8 +6,6 @@ const packageJSON = require("../package.json");
 
 const domain = process.env.PRODUCTION_DOMAIN;
 
-console.log(`marketing@/${domain}/marketing/latest/remoteEntry.js`);
-
 /** @type {import('webpack').Configuration} */
 const prodConfig = {
     mode: "production",
