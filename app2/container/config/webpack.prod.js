@@ -6,7 +6,7 @@ const packageJSON = require("../package.json");
 
 const domain = process.env.PRODUCTION_DOMAIN;
 
-console.log("Domain: " + domain);
+console.log(`Domain-: ${domain}`);
 
 /** @type {import('webpack').Configuration} */
 const prodConfig = {
