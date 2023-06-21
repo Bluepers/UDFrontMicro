@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import { mount } from "marketing/MarketingApp";
+import { mount } from "auth/AuthApp";
 
-const MarketingApp = () => {
+/**@type {function ({onSignIn: function (boolean)})} */
+const AuthApp = ({ onSignIn }) => {
     const ref = useRef(null);
     const history = useHistory();
 
@@ -17,6 +18,9 @@ const MarketingApp = () => {
                 }
             },
             initialPath: history.location.pathname,
+            onAuthChange: (status) => {
+                onSignIn(status);
+            },
         });
 
         history.listen(function (location, action) {
@@ -27,4 +31,4 @@ const MarketingApp = () => {
     return <div ref={ref} />;
 };
 
-export default MarketingApp;
+export default AuthApp;

@@ -4,7 +4,10 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 
 import App from "./App";
 
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (
+    el,
+    { onNavigate, defaultHistory, initialPath, onAuthChange },
+) => {
     const history =
         defaultHistory ||
         createMemoryHistory({
@@ -17,12 +20,13 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
         });
     }
 
-    ReactDOM.render(<App history={history} />, el);
+    ReactDOM.render(<App history={history} onAuthChange={onAuthChange} />, el);
 
     const mountReturn = {
         onParentNavigate(location, action) {
             const { pathname: nextPathname, key } = location;
             const { pathname: currentPathname } = history.location;
+
             if (currentPathname !== nextPathname) {
                 history.push(nextPathname);
             }
@@ -33,7 +37,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-    const elem = document.querySelector("#dev-marketing");
+    const elem = document.querySelector("#dev-auth");
     if (elem) {
         // Probable running in development in isolation
         mount(elem, {
@@ -41,6 +45,7 @@ if (process.env.NODE_ENV === "development") {
                 console.log(location, action);
             },
             defaultHistory: createBrowserHistory(),
+            initialPath: "/auth/signin",
         });
     }
 }
