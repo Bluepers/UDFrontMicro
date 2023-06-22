@@ -112,16 +112,16 @@
       <Panel header="Contact Us">
         <div class="grid">
           <div class="col-12">
-            <Dropdown v-model="dropdownCity" :options="dropdownCities" optionLabel="name" placeholder="Select a City" />
+            <Dropdown class="col-12" v-model="dropdownCity" :options="dropdownCities" optionLabel="name" placeholder="Select a City" />
           </div>
           <div class="col-12">
-            <InputText type="text" placeholder="Name" />
+            <InputText class="col-12" type="text" placeholder="Name" />
           </div>
           <div class="col-12">
-            <InputText type="text" placeholder="Age" />
+            <InputText class="col-12" type="text" placeholder="Age" />
           </div>
           <div class="col-12">
-            <InputText type="text" placeholder="Message" />
+            <InputText class="col-12" type="text" placeholder="Message" />
           </div>
           <div class="col-12">
             <Button type="button" label="Send" icon="pi pi-envelope" />

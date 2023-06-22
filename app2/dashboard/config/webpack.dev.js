@@ -3,6 +3,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 const commonConfig = require("./webpack.common");
 const packageJSON = require("../package.json");
+const { DefinePlugin } = require("webpack");
 
 /** @type {import('webpack').Configuration} */
 const devConfig = {
@@ -27,6 +28,10 @@ const devConfig = {
                 "./DashboardApp": "./src/bootstrap",
             },
             shared: packageJSON.dependencies,
+        }),
+        new DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: true,
         }),
     ],
 };
